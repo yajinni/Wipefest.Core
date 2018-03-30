@@ -24,6 +24,7 @@
     <Content Include=".babelrc" />
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
+    <Content Include=".travis.yml" />
     <Content Include="LICENSE" />
     <Content Include=".npmignore" />
     <Content Include="package-lock.json" />
