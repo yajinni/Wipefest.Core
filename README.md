@@ -1,5 +1,7 @@
 ﻿# Wipefest Core
 
+[![Build Status](https://travis-ci.org/JoshYaxley/Wipefest.Core.svg?branch=master)](https://travis-ci.org/JoshYaxley/Wipefest.Core)
+
 This repository contains the code for the
 [@wipefest/core](https://www.npmjs.com/package/@wipefest/core)
 NPM package,
