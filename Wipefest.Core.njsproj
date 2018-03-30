@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37378933-feb4-4f58-93c9-d1f25b3cf310}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ProjectFiles</ProjectView>
+    <StartupFile>karma.conf.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include=".babelrc" />
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="LICENSE" />
+    <Content Include=".npmignore" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+    <Content Include="README.md" />
+    <Compile Include="karma.conf.js" />
+    <Compile Include="webpack.config.js" />
+    <TypeScriptCompile Include="lib\helpers\difficulty-helper.ts" />
+    <TypeScriptCompile Include="lib\index.ts" />
+    <TypeScriptCompile Include="lib\markup\markup-parser.ts" />
+    <TypeScriptCompile Include="lib\test.ts" />
+    <TypeScriptCompile Include="lib\combat-events\combat-event.service.ts" />
+    <TypeScriptCompile Include="lib\combat-events\combat-event.ts" />
+    <TypeScriptCompile Include="lib\deaths\death.service.ts" />
+    <TypeScriptCompile Include="lib\deaths\death.ts" />
+    <TypeScriptCompile Include="lib\encounters\encounter.ts" />
+    <TypeScriptCompile Include="lib\encounters\encounters.service.ts" />
+    <TypeScriptCompile Include="lib\event-configs\event-config.service.ts" />
+    <TypeScriptCompile Include="lib\event-configs\event-config.ts" />
+    <TypeScriptCompile Include="lib\fight-events\fight-event.service.spec.ts" />
+    <TypeScriptCompile Include="lib\fight-events\fight-event.service.ts" />
+    <TypeScriptCompile Include="lib\fights\fight.service.spec.ts" />
+    <TypeScriptCompile Include="lib\fights\fight.service.ts" />
+    <TypeScriptCompile Include="lib\fights\fight.ts" />
+    <TypeScriptCompile Include="lib\helpers\timestamp-helper.ts" />
+    <TypeScriptCompile Include="lib\insights\insight.service.spec.ts" />
+    <TypeScriptCompile Include="lib\insights\insight.service.ts" />
+    <TypeScriptCompile Include="lib\markup\markup-helper.ts" />
+    <TypeScriptCompile Include="lib\raid\raid.spec.ts" />
+    <TypeScriptCompile Include="lib\raid\raid.ts" />
+    <TypeScriptCompile Include="lib\reports\report.service.ts" />
+    <TypeScriptCompile Include="lib\reports\report.ts" />
+    <TypeScriptCompile Include="lib\specializations\specialization.ts" />
+    <TypeScriptCompile Include="lib\specializations\specializations.service.ts" />
+    <TypeScriptCompile Include="lib\testing\test-data.service.ts" />
+    <TypeScriptCompile Include="lib\warcraft-logs\warcraft-logs-combat-event.service.spec.ts" />
+    <TypeScriptCompile Include="lib\warcraft-logs\warcraft-logs-combat-event.service.ts" />
+    <TypeScriptCompile Include="lib\warcraft-logs\warcraft-logs-death.service.spec.ts" />
+    <TypeScriptCompile Include="lib\warcraft-logs\warcraft-logs-death.service.ts" />
+    <TypeScriptCompile Include="lib\warcraft-logs\warcraft-logs-report.service.spec.ts" />
+    <TypeScriptCompile Include="lib\warcraft-logs\warcraft-logs-report.service.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\ability-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\damage-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\death-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\debuff-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\debuff-stack-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\end-of-fight-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\fight-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\heroism-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\interrupt-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\phase-change-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\remove-debuff-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\spawn-event.ts" />
+    <TypeScriptCompile Include="lib\fight-events\models\title-event.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\cast.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\closest-hit.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\death.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\debuff-duration.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\debuff-unless-role.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\debuff.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\died-from-falling.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit-by-someone-else.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit-except-roughly-duration-after-debuff.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit-friendly.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit-hard.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit-unless-role.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit-without-debuff.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\hit.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\insight-config.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\interrupt.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\phase-duration.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\soak.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\spawn.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\stack-threshold.ts" />
+    <TypeScriptCompile Include="lib\insights\models\ability-and-timestamp.ts" />
+    <TypeScriptCompile Include="lib\insights\models\insight-context.ts" />
+    <TypeScriptCompile Include="lib\insights\models\insight.ts" />
+    <TypeScriptCompile Include="lib\insights\models\phase-and-duration.ts" />
+    <TypeScriptCompile Include="lib\insights\models\player-and-ability.ts" />
+    <TypeScriptCompile Include="lib\insights\models\player-and-damage.ts" />
+    <TypeScriptCompile Include="lib\insights\models\player-and-duration.ts" />
+    <TypeScriptCompile Include="lib\insights\models\player-and-frequency.ts" />
+    <TypeScriptCompile Include="lib\insights\models\player-and-timestamp.ts" />
+    <TypeScriptCompile Include="lib\insights\models\timestamp-and-players.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\aggramar\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\antoran-high-command\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\antoran-high-command\fusillade-before-felshield.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\antoran-high-command\less-than-six-emitters-before-erodus.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\antoran-high-command\pod-duration.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\argus-the-unmaker\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\felhounds-of-sargeras\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\felhounds-of-sargeras\sargeras-blessing-duration.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\garothi-worldbreaker\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\garothi-worldbreaker\weapon-destroyed-first.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\imonar-the-soulhunter\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\kingaroth\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\portal-keeper-hasabel\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\the-coven-of-shivarra\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\the-defense-of-eonar\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\the-defense-of-eonar\paraxis-teams.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\varimathras\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\antorus-the-burning-throne\varimathras\marked-prey.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\demonic-inquisition\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\goroth\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\creators-grace.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\echoes.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\fell-in-hole.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\orbs.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\titanic-bulwark.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\unnecessary-unstable-soul-gains.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\unstable-soul-early-expiration-explosion.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\unstable-soul-full-expiration-explosion.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\unstable-soul-gains-from-echoes.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\mistress-sasszine\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\sisters-of-the-moon\all.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\sisters-of-the-moon\astral-vulnerability.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\sisters-of-the-moon\glaive-storm.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\sisters-of-the-moon\moon-burn.ts" />
+    <TypeScriptCompile Include="lib\insights\configs\tomb-of-sargeras\sisters-of-the-moon\twilight-glaive.ts" />
+    <TypeScriptCompile Include="lib\testing\data\xyMd2kwb3W9zNrJF-13.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+    <Folder Include="lib\combat-events\" />
+    <Folder Include="lib\deaths\" />
+    <Folder Include="lib\encounters\" />
+    <Folder Include="lib\event-configs\" />
+    <Folder Include="lib\fight-events\" />
+    <Folder Include="lib\fight-events\models\" />
+    <Folder Include="lib\fights\" />
+    <Folder Include="lib\helpers\" />
+    <Folder Include="lib\insights\" />
+    <Folder Include="lib\insights\configs\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\aggramar\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\antoran-high-command\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\argus-the-unmaker\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\felhounds-of-sargeras\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\garothi-worldbreaker\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\imonar-the-soulhunter\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\kingaroth\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\portal-keeper-hasabel\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\the-coven-of-shivarra\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\the-defense-of-eonar\" />
+    <Folder Include="lib\insights\configs\antorus-the-burning-throne\varimathras\" />
+    <Folder Include="lib\insights\configs\tomb-of-sargeras\" />
+    <Folder Include="lib\insights\configs\tomb-of-sargeras\demonic-inquisition\" />
+    <Folder Include="lib\insights\configs\tomb-of-sargeras\goroth\" />
+    <Folder Include="lib\insights\configs\tomb-of-sargeras\maiden-of-vigilance\" />
+    <Folder Include="lib\insights\configs\tomb-of-sargeras\mistress-sasszine\" />
+    <Folder Include="lib\insights\configs\tomb-of-sargeras\sisters-of-the-moon\" />
+    <Folder Include="lib\insights\models\" />
+    <Folder Include="lib\markup\" />
+    <Folder Include="lib\raid\" />
+    <Folder Include="lib\reports\" />
+    <Folder Include="lib\specializations\" />
+    <Folder Include="lib\testing\" />
+    <Folder Include="lib\testing\data\" />
+    <Folder Include="lib\warcraft-logs\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

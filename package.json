@@ -1,0 +1,47 @@
+{
+  "name": "@wipefest/core",
+  "version": "0.1.12",
+  "license": "AGPL-3.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "lint": "tslint --exclude **/testing/data/**/*.ts --exclude **/lib/**/*.d.ts --exclude **/node_modules/**/*.ts --project tsconfig.json **/*.ts",
+    "lint-fix": "tslint --exclude **/testing/data/**/*.ts --exclude **/lib/**/*.d.ts --exclude **/node_modules/**/*.ts --project tsconfig.json **/*.ts --fix",
+    "build": "webpack",
+    "test": "karma start"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "rxjs": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.6",
+    "@types/node": "~6.0.60",
+    "@types/webpack-env": "^1.13.5",
+    "axios-mock-adapter": "^1.14.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "dts-bundle": "^0.7.3",
+    "jasmine": "^3.1.0",
+    "jasmine-core": "^3.1.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.4.2",
+    "karma-jasmine": "^1.1.0",
+    "karma-jasmine-html-reporter": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^3.0.0",
+    "prettier": "^1.11.1",
+    "ts-loader": "^4.1.0",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint-plugin-prettier": "^1.3.0",
+    "typescript": "^2.7.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
+  }
+}

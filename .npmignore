@@ -1,0 +1,17 @@
+.vs
+lib
+node_modules
+obj
+bin
+.babelrc
+.gitattributes
+.gitignore
+.npmignore
+karma.conf.js
+package-lock.json
+tsconfig.json
+tslint.json
+webpack.config.js
+Wipefest.Core.njsproj
+Wipefest.Core.njsproj.DotSettings
+Wipefest.Core.sln
