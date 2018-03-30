@@ -8,7 +8,7 @@
     "lint": "tslint --exclude **/testing/data/**/*.ts --exclude **/lib/**/*.d.ts --exclude **/node_modules/**/*.ts --project tsconfig.json **/*.ts",
     "lint-fix": "tslint --exclude **/testing/data/**/*.ts --exclude **/lib/**/*.d.ts --exclude **/node_modules/**/*.ts --project tsconfig.json **/*.ts --fix",
     "build": "webpack",
-    "test": "karma start --browsers ChromeHeadless --single-run"
+    "test": "karma start"
   },
   "dependencies": {
     "axios": "^0.18.0",
