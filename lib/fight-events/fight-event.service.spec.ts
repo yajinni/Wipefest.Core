@@ -19,7 +19,7 @@ describe('FightEventService', () => {
     // Convert to Objects so Jasmine doesn't worry about types not matching
     // (FightEvent !== AbilityEvent etc)
     const actual = JSON.parse(JSON.stringify(events));
-    const expected = JSON.parse(JSON.stringify(data.events));
+    const expected = JSON.parse(JSON.stringify(data.eventDtos));
 
     expect(actual).toEqual(expected);
   });

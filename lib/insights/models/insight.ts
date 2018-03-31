@@ -38,4 +38,14 @@ export class Insight {
 
     return trimmedTip === '.' || trimmedTip === '' ? null : this._tip;
   }
+
+  toJSON(): any {
+    return {
+      id: this.id,
+      boss: this.boss,
+      title: this.title,
+      details: this.details,
+      tip: this.tip
+    };
+  }
 }

@@ -8,6 +8,7 @@ import { Death } from '../deaths/death';
 import { Ability } from '../fight-events/models/ability-event';
 import { Specialization } from '../specializations/specialization';
 import { CombatEventPage } from '../warcraft-logs/warcraft-logs-combat-event.service';
+import { FightEventDto } from 'fight-events/models/fight-event-dto';
 
 export class TestDataService {
   get(fileName: string): TestData {
@@ -98,6 +99,7 @@ export class TestData {
   }
   raid: Raid;
   events: FightEvent[];
+  eventDtos: FightEventDto[];
   insights: Insight[];
 }
 

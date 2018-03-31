@@ -44,4 +44,17 @@ export class Specialization {
     public role: string,
     public focusEnabled: boolean = false
   ) {}
+
+  toJSON(): any {
+    return Object.assign(
+      {
+        icon: this.icon,
+        include: this.include,
+        group: this.group,
+        generalInclude: this.generalInclude,
+        generalGroup: this.generalGroup
+      },
+      this
+    );
+  }
 }

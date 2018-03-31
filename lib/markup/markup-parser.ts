@@ -18,7 +18,7 @@ export namespace MarkupParser {
 
   export class Property {
     constructor(public name: string, public value: string) {}
-    }
+  }
 
   export namespace RuleSets {
     export const html = [
@@ -28,9 +28,9 @@ export namespace MarkupParser {
       ),
       new Rule('style', `<span class="$0">$1</span>`, style =>
         style
-        .split(' ')
-        .map(s => `markup-${s}`)
-        .join(' ')
+          .split(' ')
+          .map(s => `markup-${s}`)
+          .join(' ')
       ),
       new Rule('image', `<img src="$0" alt="$1" />`)
     ];
@@ -62,7 +62,7 @@ export namespace MarkupParser {
     tags.forEach(tag => {
       input = input.replace(tag.tag, parseTag(tag, rules));
     });
-    
+
     while (input.indexOf('  ') !== -1) {
       input = input.replace('  ', ' ');
     }
@@ -89,7 +89,11 @@ export namespace MarkupParser {
     return applyProperties(tag.text, tag.properties, rules);
   }
 
-  function applyProperties(input: string, properties: Property[], rules: Rule[]): string {
+  function applyProperties(
+    input: string,
+    properties: Property[],
+    rules: Rule[]
+  ): string {
     properties.forEach(
       property =>
         (input = applyProperty(

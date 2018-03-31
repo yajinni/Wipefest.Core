@@ -1,5 +1,6 @@
 import { Timestamp } from '../../helpers/timestamp-helper';
 import { EventConfig } from 'event-configs/event-config';
+import { FightEventDto } from './fight-event-dto';
 
 export abstract class FightEvent {
   constructor(
@@ -66,5 +67,48 @@ export abstract class FightEvent {
 
   isInstanceOf(classType: any): boolean {
     return this instanceof classType;
+  }
+
+  toJSON(): any {
+    return this.toDto();
+  }
+
+  toDto(): FightEventDto {
+    let childEventDtos = [];
+    if (this.childEvents) {
+      childEventDtos = this.childEvents.map(x => x.toDto());
+    }
+
+    return new FightEventDto(
+      this.config,
+      this.timestamp,
+      this.x,
+      this.y,
+      this['sequence'],
+      this.isFriendly,
+      this.title,
+      this.tableTitle,
+      this['ability'],
+      this['stack'],
+      this['killingBlow'],
+      this['damage'],
+      this['absorbed'],
+      this['overkill'],
+      this['deathWindow'],
+      this['damageTaken'],
+      this['healingReceived'],
+      this['source'],
+      this['target'],
+      this['from'],
+      this['actor'],
+      this['instance'],
+      this.childEvents.map(event => event.toDto()),
+      this['isChild'],
+      this.details,
+      this['phase'],
+      this['text'],
+      this['subtitle'],
+      this['kill']
+    );
   }
 }

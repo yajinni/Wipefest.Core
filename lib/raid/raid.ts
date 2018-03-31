@@ -112,6 +112,19 @@ export class Raid {
       new RoleWithPlayers('Melee', this.melee)
     ];
   }
+
+  toJSON(): any {
+    return Object.assign(
+      {
+        itemLevel: this.itemLevel,
+        tanks: this.tanks,
+        healers: this.healers,
+        ranged: this.ranged,
+        melee: this.melee
+      },
+      this
+    );
+  }
 }
 
 export class Player {
