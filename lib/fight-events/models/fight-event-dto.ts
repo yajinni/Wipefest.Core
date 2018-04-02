@@ -6,6 +6,7 @@ export class FightEventDto {
   constructor(
     public config: EventConfig,
     public timestamp: number,
+    public minutesAndSeconds: string,
     public x: number,
     public y: number,
     public sequence: number,

@@ -82,6 +82,7 @@ export abstract class FightEvent {
     return new FightEventDto(
       this.config,
       this.timestamp,
+      this.minutesAndSeconds,
       this.x,
       this.y,
       this['sequence'],

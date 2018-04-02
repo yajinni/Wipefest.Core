@@ -40,7 +40,11 @@ Aim to kill all {npc:Shadow of Varimathras} adds before they can successfully fi
         [243963],
         ['Necrotic Embrace'],
         [244094],
-        10000
+        10000,
+        null,
+        null,
+        null,
+        true
       )
     ];
   }

@@ -4,7 +4,8 @@ export class Insight {
     public boss: number,
     private _title: string = '',
     private _details: string = '',
-    private _tip: string = ''
+    private _tip: string = '',
+    public major: boolean
   ) {}
 
   get title(): string {
@@ -45,7 +46,8 @@ export class Insight {
       boss: this.boss,
       title: this.title,
       details: this.details,
-      tip: this.tip
+      tip: this.tip,
+      major: this.major
     };
   }
 }

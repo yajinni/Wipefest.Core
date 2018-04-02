@@ -83,4 +83,11 @@ export class Ability {
   get url(): string {
     return `http://wowhead.com/spell=${this.guid}`;
   }
+
+  toJSON() {
+    return Object.assign({
+      iconUrl: this.iconUrl,
+      url: this.url
+    }, this);
+  }
 }

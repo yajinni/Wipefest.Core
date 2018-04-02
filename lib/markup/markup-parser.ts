@@ -36,7 +36,7 @@ export namespace MarkupParser {
     ];
 
     export const plainText = [
-      new Rule('url', '$1'),
+      new Rule('url', '$1 <$0>'),
       new Rule('style', '$1'),
       new Rule('image', '')
     ];

@@ -13,7 +13,8 @@ export abstract class InsightConfig {
     public boss: number,
     protected insightTemplate,
     protected detailsTemplate,
-    protected tipTemplate
+    protected tipTemplate,
+    protected major: boolean = false
   ) {}
 
   getInsight(context: InsightContext): Insight {
@@ -28,6 +29,7 @@ export abstract class InsightConfig {
       this.insightTemplate,
       this.detailsTemplate,
       this.tipTemplate,
+      this.major,
       properties,
       context.events
     );
@@ -86,6 +88,7 @@ export abstract class InsightConfig {
     insightTemplate: string,
     detailsTemplate: string,
     tipTemplate: string,
+    major: boolean,
     properties: any,
     events: FightEvent[]
   ): Insight {
@@ -93,7 +96,7 @@ export abstract class InsightConfig {
     const details = this.renderTemplate(detailsTemplate, properties, events);
     const tip = this.renderTemplate(tipTemplate, properties, events);
 
-    return new Insight(id, boss, insight, details, tip);
+    return new Insight(id, boss, insight, details, tip, major);
   }
 
   protected getAbilitiesIfTheyExist(

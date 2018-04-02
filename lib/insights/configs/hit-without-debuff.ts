@@ -16,9 +16,10 @@ export class HitWithoutDebuff extends InsightConfig {
     private gracePeriod: number,
     insightTemplate: string = null,
     detailsTemplate: string = null,
-    tipTemplate: string = null
+    tipTemplate: string = null,
+    major: boolean = false
   ) {
-    super(id, boss, insightTemplate, detailsTemplate, tipTemplate);
+    super(id, boss, insightTemplate, detailsTemplate, tipTemplate, major);
 
     if (insightTemplate === null)
       this.insightTemplate =
