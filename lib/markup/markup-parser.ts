@@ -47,6 +47,8 @@ export namespace MarkupParser {
   Example B: {[url="http://google.com" style="bold no-underline"] text} => <span class="markup-bold markup-no-underline"><a href="http://google.com" target="_blank" rel="noopener noreferrer">text</a></span>
   */
   export function Parse(input: string, rules: Rule[] = []): string {
+    if (input === undefined || input === null || input.trim() === "") return input;
+
     if (rules.length === 0) {
       rules = RuleSets.html;
     }
