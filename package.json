@@ -1,6 +1,6 @@
 {
   "name": "@wipefest/core",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "license": "AGPL-3.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

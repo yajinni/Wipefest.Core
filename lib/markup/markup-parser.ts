@@ -69,7 +69,7 @@ export namespace MarkupParser {
       input = input.replace('  ', ' ');
     }
 
-    return input;
+    return input.trim();
   }
 
   function getMatches(input: string, regex: RegExp): string[][] {
