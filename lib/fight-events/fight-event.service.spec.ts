@@ -16,11 +16,9 @@ describe('FightEventService', () => {
       data.deaths.entries
     );
 
-    // Convert to Objects so Jasmine doesn't worry about types not matching
-    // (FightEvent !== AbilityEvent etc)
-    const actual = JSON.parse(JSON.stringify(events));
-    const expected = JSON.parse(JSON.stringify(data.eventDtos));
-
-    expect(actual).toEqual(expected);
+    // Compare key event properties so test is less brittle
+    let eventDtos = events.map(x => x.toDto());
+    expect(eventDtos.map(x => x.title)).toEqual(data.eventDtos.map(x => x.title));
+    expect(eventDtos.map(x => x.timestamp)).toEqual(data.eventDtos.map(x => x.timestamp));
   });
 });

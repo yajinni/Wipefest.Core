@@ -87,13 +87,16 @@ describe('FightService', () => {
         expect(fight.info).toEqual(data.fightInfo);
         expect(fight.eventConfigs).toEqual(data.eventConfigs);
         expect(fight.raid).toEqual(data.raid);
-        expect(fight.insights).toEqual(data.insights);
 
-        // Convert to Objects so Jasmine doesn't worry about types not matching
-        // (FightEvent !== AbilityEvent etc)
-        expect(JSON.parse(JSON.stringify(fight.events))).toEqual(
-          JSON.parse(JSON.stringify(data.eventDtos))
-        );
+        // Compare key insight properties so test is less brittle
+        expect(fight.insights.map(x => x.title)).toEqual(data.insights.map(x => x.title));
+        expect(fight.insights.map(x => x.details)).toEqual(data.insights.map(x => x.details));
+        expect(fight.insights.map(x => x.tip)).toEqual(data.insights.map(x => x.tip));
+
+        // Compare key event properties so test is less brittle
+        let eventDtos = fight.events.map(x => x.toDto());
+        expect(eventDtos.map(x => x.title)).toEqual(data.eventDtos.map(x => x.title));
+        expect(eventDtos.map(x => x.timestamp)).toEqual(data.eventDtos.map(x => x.timestamp));
         done();
       });
   });
