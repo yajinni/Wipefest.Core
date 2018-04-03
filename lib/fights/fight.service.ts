@@ -25,7 +25,8 @@ export class FightService {
   getFight(
     report: Report,
     fightInfo: FightInfo,
-    eventConfigs: EventConfig[]
+    eventConfigs: EventConfig[],
+    deathThreshold: number = 0
   ): Observable<Fight> {
     const deaths$ = this.deathService.getDeaths(report, fightInfo);
     const combatEvents$ = this.combatEventService.getCombatEvents(
@@ -43,7 +44,8 @@ export class FightService {
         fightInfo,
         eventConfigs,
         combatEvents,
-        deaths
+        deaths,
+        deathThreshold
       );
       const raid = RaidFactory.Get(
         combatEvents.filter(x => x.type === 'combatantinfo'),

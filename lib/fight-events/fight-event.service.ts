@@ -24,7 +24,8 @@ export class FightEventService {
     fight: FightInfo,
     configs: EventConfig[],
     combatEvents: CombatEvent[],
-    deaths: Death[]
+    deaths: Death[],
+    deathThreshold: number = 0
   ): FightEvent[] {
     let events: FightEvent[] = [].concat.apply(
       [],
@@ -45,6 +46,14 @@ export class FightEventService {
         );
       })
     );
+
+    if (deathThreshold > 0) {
+      let deathEvents = events.filter(x => x.config.eventType == "death");
+      if (deathEvents.length >= deathThreshold) {
+        let deathThresholdTimestamp = deathEvents[deathThreshold - 1].timestamp;
+        events = events.filter(x => x.timestamp <= deathThresholdTimestamp);
+      }
+    }
 
     if (!events.some(x => x.isInstanceOf(PhaseChangeEvent))) {
       events.push(new TitleEvent(0, 'Pull'));
