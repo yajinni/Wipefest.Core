@@ -7,7 +7,7 @@ import { PhaseDuration } from '../../phase-duration';
 export namespace ImonarTheSoulHunterInsightConfigs {
   export function All(): InsightConfig[] {
     return [
-      new Hit('0', 2082, ['Infernal Rockets'], [248252]),
+      new Hit('0', 2082, ['Infernal Rockets'], [248252], null, null, null, true),
 
       // Shock Lance stacks too high
       new DebuffDuration(
@@ -16,7 +16,7 @@ export namespace ImonarTheSoulHunterInsightConfigs {
         'Sleep Canister',
         'Sleep Canister (Removed)'
       ),
-      new Debuff('2', 2082, ['Slumber Gas'], [247565]),
+      new Debuff('2', 2082, ['Slumber Gas'], [247565], null, null, null, true),
       new Hit('3', 2082, ['Pulse Grenade'], [247388, 247681]),
 
       // Sever stacks too high
@@ -61,7 +61,7 @@ export namespace ImonarTheSoulHunterInsightConfigs {
         'Had a {phase} duration of {averageDuration}.',
         ''
       ),
-      new Hit('C', 2082, ['Seared Skin'], [254181]),
+      new Hit('C', 2082, ['Seared Skin'], [254181], null, null, null, true),
       new Debuff('D', 2082, ['Stasis Trap'], [247641]),
       new Hit('E', 2082, ['Blastwire'], [247962], null, '{timestamps}', null)
     ];

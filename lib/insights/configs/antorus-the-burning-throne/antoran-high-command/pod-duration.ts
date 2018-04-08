@@ -23,7 +23,7 @@ or {ability:245174:Summon Disruptor Beacon:shadow}.
 The longer the player stays in the pod, the more they can help the raid with their special ability.
 While the player is in the pod, they take increasing ticking damage from {ability:244172:Psychic Assault:shadow}.
 A player can leave the pod at any time, and will be forced out if they die,
-or if the current boss casts {ability:245227:Assume Command:physical}.`
+or if the current boss casts {ability:245227:Assume Command:physical}.`, true
     );
   }
 

@@ -10,12 +10,12 @@ export namespace TheCovenOfShivarraInsightConfigs {
     return [
       // Fiery Strike 244899 stacks too high
       // Flashfreeze 245518 stacks too high
-      new DebuffUnlessRole('0', 2073, ['Fiery Strike'], [244899], 'Tank'),
-      new DebuffUnlessRole('1', 2073, ['Flashfreeze'], [244899], 'Tank'),
+      new DebuffUnlessRole('0', 2073, ['Fiery Strike'], [244899], 'Tank', null, null, null, true),
+      new DebuffUnlessRole('1', 2073, ['Flashfreeze'], [244899], 'Tank', null, null, null, true),
 
-      new Hit('2', 2073, ['Fury of Golganneth'], [246770]),
-      new Hit('3', 2073, ['Spectral Army of Norgannon'], [245921]),
-      new Hit('4', 2073, ["Flames of Khaz'goroth"], [245674]),
+      new Hit('2', 2073, ['Fury of Golganneth'], [246770], null, null, null, true),
+      new Hit('3', 2073, ['Spectral Army of Norgannon'], [245921], null, null, null, true),
+      new Hit('4', 2073, ["Flames of Khaz'goroth"], [245674], null, null, null, true),
 
       new Hit('5', 2073, ['Shadow Blades'], [246374]),
       new Hit('6', 2073, ['Whirling Saber'], [245634]),
@@ -26,7 +26,7 @@ export namespace TheCovenOfShivarraInsightConfigs {
         [253588],
         ['Fulminating Pulse'],
         [253520],
-        15000
+        15000, null, null, null, true
       ),
       new Debuff('8', 2073, ['Chilled Blood (Frozen)'], [256356]),
       new HitWithoutDebuff(

@@ -36,7 +36,7 @@ When this debuff expires, ${MarkupHelper.Style(
         )} fires missiles at the tank's position.
 To avoid these missiles, the tank should move away from the boss when they have the debuff,
 and then be running when the debuff expires.
-Other players should stay away from the tank to avoid being hit by these missiles.`
+Other players should stay away from the tank to avoid being hit by these missiles.`, true
       ),
       new Hit(
         '2',
@@ -52,7 +52,7 @@ When the ${MarkupHelper.Style(
         )} weapon is active, it casts {ability:244449:Decimation:fire},
 which creates large circles on the ground that players should move out of.
 When {ability:244449:Decimation:fire} hits,
-the raid takes minor damage, and players inside of these circles take major damage.`
+the raid takes minor damage, and players inside of these circles take major damage.`, true
       ),
       new Cast(
         '3',
@@ -101,7 +101,7 @@ ${MarkupHelper.Style(
           'Garothi Worldbreaker'
         )} will cast {ability:244969:Eradication:physical},
 which deals more damage the closer you are to him.
-Make sure to move away from the boss to reduce this damage.`
+Make sure to move away from the boss to reduce this damage.`, true
       ),
       new Soak(
         '6',

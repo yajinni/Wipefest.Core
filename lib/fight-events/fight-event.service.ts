@@ -48,7 +48,7 @@ export class FightEventService {
     );
 
     if (deathThreshold > 0) {
-      let deathEvents = events.filter(x => x.config.eventType == "death");
+      let deathEvents = events.filter(x => x.config && x.config.eventType == "death");
       if (deathEvents.length >= deathThreshold) {
         let deathThresholdTimestamp = deathEvents[deathThreshold - 1].timestamp;
         events = events.filter(x => x.timestamp <= deathThresholdTimestamp);

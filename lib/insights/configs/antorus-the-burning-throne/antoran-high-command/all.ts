@@ -24,7 +24,7 @@ export namespace AntoranHighCommandInsightConfigs {
         `
 Whichever boss is active will periodically cast {ability:244892:Exploit Weakness:physical},
 which deals a high amount of physical damage and increases physical damage taken for 20 seconds.
-Only tanks should get hit by this, and they should swap on the debuff.`
+Only tanks should get hit by this, and they should swap on the debuff.`, true
       ),
 
       new ClosestHit(
@@ -80,7 +80,7 @@ Their first ability applies {ability:244420:Chaos Pulse:fire} to an enemy.
 This should be constantly used on the currently active boss.
 {ability:244420:Chaos Pulse:fire} stacks up to 15 times, increasing the bosses damage taken by 15%.
 This damage taken increase is crucial for meeting the damage requirement of this encounter.
-The debuff lasts for 6 seconds, so can be kept at full stacks even when a new player is entering a pod.`
+The debuff lasts for 6 seconds, so can be kept at full stacks even when a new player is entering a pod.`, true
       ),
 
       new Death(
@@ -93,7 +93,7 @@ The debuff lasts for 6 seconds, so can be kept at full stacks even when a new pl
 When a player enters a pod, they gain {ability:244172:Psychic Assault:shadow},
 which deals increasing ticking damage while they are inside.
 Healers should do their best to keep pod players alive,
-and pod players should watch their health, being sure to exit the pod before they die.`
+and pod players should watch their health, being sure to exit the pod before they die.`, true
       ),
 
       new LessThanSixEmittersBeforeErodus('5'),
@@ -113,7 +113,7 @@ and pod players should watch their health, being sure to exit the pod before the
         `
 Every 15 to 20 seconds, 3 players will be afflicted with {ability:244737:Shock Grenade:fire}.
 5 seconds later, these players will explode, dealing damage and stunning players within 8 yards.
-Players with {ability:244737:Shock Grenade:fire} should find a safe position, where they won't hit anyone else when they explode.`
+Players with {ability:244737:Shock Grenade:fire} should find a safe position, where they won't hit anyone else when they explode.`, true
       )
     ];
   }

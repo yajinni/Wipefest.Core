@@ -16,9 +16,10 @@ export class DebuffDuration extends InsightConfig {
     private threshold: number = 0,
     insightTemplate: string = null,
     detailsTemplate: string = null,
-    tipTemplate: string = null
+    tipTemplate: string = null,
+    major: boolean = false
   ) {
-    super(id, boss, insightTemplate, detailsTemplate, tipTemplate);
+    super(id, boss, insightTemplate, detailsTemplate, tipTemplate, major);
 
     if (insightTemplate === null) {
       if (this.threshold > 0) {

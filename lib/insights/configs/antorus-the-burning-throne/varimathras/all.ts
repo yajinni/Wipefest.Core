@@ -10,7 +10,7 @@ export namespace VarimathrasInsightConfigs {
     return [
       // Necrotic Embrace spreads
 
-      new HitUnlessRole('0', 2069, ['Shadow Strike'], [243960], 'Tank'),
+      new HitUnlessRole('0', 2069, ['Shadow Strike'], [243960], 'Tank', null, null, null, true),
       new DebuffDuration(
         '4',
         2069,

@@ -23,7 +23,7 @@ export namespace PortalKeeperHasabelInsightConfigs {
 spawning a large black circle at her location.
 When she finishes casting, all players take small damage, and players stood within the circle take huge damage.
 Position {npc:Portal Keeper Hasabel} at the edge of the main platform, between two portals,
-and move her whenever she casts {ability:243984:Collapsing World:shadow}.`
+and move her whenever she casts {ability:243984:Collapsing World:shadow}.`, true
       ),
       new Hit(
         '1',
@@ -35,7 +35,7 @@ and move her whenever she casts {ability:243984:Collapsing World:shadow}.`
         `
 {ability:244001:Felstorm Barrage:fire} spawns several wide green lines across the main platform.
 Shortly after each line shows, players stood in it will be barraged for huge damage.
-Lines spawn one after another at different angles, but always go through the center of the platform.`
+Lines spawn one after another at different angles, but always go through the center of the platform.`, true
       ),
       new Interrupt(
         '2',

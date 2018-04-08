@@ -11,8 +11,8 @@ export namespace AggramarInsightConfigs {
     return [
       // Taeshalach's Reach 245990 stacks too high
       // Flame Rend 244033 non-tank ability target
-      new DebuffUnlessRole('0', 2063, ["Taeshalach's Reach"], [245990], 'Tank'),
-      new DebuffUnlessRole('1', 2063, ['Foe Breaker'], [244291], 'Tank'),
+      new DebuffUnlessRole('0', 2063, ["Taeshalach's Reach"], [245990], 'Tank', null, null, null, true),
+      new DebuffUnlessRole('1', 2063, ['Foe Breaker'], [244291], 'Tank', null, null, null, true),
       new Debuff(
         '2',
         2063,
@@ -24,11 +24,11 @@ export namespace AggramarInsightConfigs {
         )} gained {abilities} {totalHits} time{plural}.`,
         '{abilitiesAndTimestamps}'
       ),
-      new Debuff('3', 2063, ['Wake of Flame'], [244736]),
+      new Debuff('3', 2063, ['Wake of Flame'], [244736], null, null, null, true),
 
-      new Hit('4', 2063, ['Flare'], [245391]),
-      new Hit('5', 2063, ['Empowered Flare'], [245392]),
-      new Hit('6', 2063, ['Meteor Swarm'], [244686]),
+      new Hit('4', 2063, ['Flare'], [245391], null, null, null, true),
+      new Hit('5', 2063, ['Empowered Flare'], [245392], null, null, null, true),
+      new Hit('6', 2063, ['Meteor Swarm'], [244686], null, null, null, true),
 
       new PhaseDuration(
         '7',

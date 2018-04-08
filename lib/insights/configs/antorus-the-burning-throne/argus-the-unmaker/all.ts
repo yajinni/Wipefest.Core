@@ -19,9 +19,9 @@ export namespace ArgusTheUnmakerInsightConfigs {
         2092,
         ['Sweeping Scythe', 'Deadly Scythe'],
         [248499, 258039],
-        'Tank'
+        'Tank', null, null, null, true
       ),
-      new Hit('1', 2092, ['Death Fog'], [248167]),
+      new Hit('1', 2092, ['Death Fog'], [248167], null, null, null, true),
       new DebuffDuration(
         '2',
         2092,
@@ -36,7 +36,7 @@ export namespace ArgusTheUnmakerInsightConfigs {
       ),
 
       // Soulbomb 251570 target has Aggramar's Boon 255200 when Soulbomb Detonation 251571
-      new Debuff('4', 2092, ['Edge of Obliteration'], [251815]),
+      new Debuff('4', 2092, ['Edge of Obliteration'], [251815], null, null, null, true),
 
       // Cosmic Power 255935 debuff on non-casting Constellar Designates
       new Interrupt('5', 2092, ['Cosmic Beacon'], [252616]),
@@ -54,8 +54,8 @@ export namespace ArgusTheUnmakerInsightConfigs {
       // Reorigination Module average lifespan
       // Soul Detonation 256899 debuffs
       // Withering Roots 256399 max stack
-      new Debuff('7', 2092, ['Ember of Rage'], [257299]),
-      new Death('8', 2092, [256396]),
+      new Debuff('7', 2092, ['Ember of Rage'], [257299], null, null, null, true),
+      new Death('8', 2092, [256396], null, null, null, true),
       new Debuff('9', 2092, ['Soul Detonation'], [256899])
     ];
   }

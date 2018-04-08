@@ -24,7 +24,7 @@ The ${MarkupHelper.Style(
           'Felhounds'
         )} will regularly cast {ability:251445:Smouldering:fire} / {ability:245098:Decay:shadow},
 which deal damage and apply a debuff to all players stood in front of them.
-Only tanks need to get hit by this, so players should be sure not to stand in front of either boss.`
+Only tanks need to get hit by this, so players should be sure not to stand in front of either boss.`, true
       ),
 
       new HitWithoutDebuff(
@@ -49,7 +49,7 @@ At 33 energy, ${MarkupHelper.Style(
 causing a manifestation of flame to charge through the targeted players
 and deal damage to anyone caught in its path.
 Targeted players should move out of the raid, trying to make it easier for other players to dodge this mechanic.
-This insight shows the hits to players that were not affected by the {ability:244768:Desolate Gaze:physical} debuff.`
+This insight shows the hits to players that were not affected by the {ability:244768:Desolate Gaze:physical} debuff.`, true
       ),
 
       new Hit(
@@ -67,7 +67,7 @@ At 66 energy, ${MarkupHelper.Style(
 stunning and damaging them.
 The targeted player will send flame missiles towards other players,
 which those players need to dodge to avoid unnecessary damage.
-If the raid is grouped up when this happens, it is useful to move as a group.`
+If the raid is grouped up when this happens, it is useful to move as a group.`, true
       ),
 
       new Hit(
@@ -117,7 +117,7 @@ Counter this mechanic by ensuring every target has enough players stacked on the
 Half of the raid will be afflicted with {ability:244054:Flametouched:fire}.
 When these players take shadow damage (such as from {ability:244583:Siphoned:shadow} or {ability:244130:Consuming Detonation:shadow}),
 they spawn yellow circles that will explode, dealing {ability:244681:Burning Flash:fire} damage.
-{ability:244054:Flametouched:fire} players should move as a group to avoid this mechanic.`
+{ability:244054:Flametouched:fire} players should move as a group to avoid this mechanic.`, true
       ),
 
       new Hit(

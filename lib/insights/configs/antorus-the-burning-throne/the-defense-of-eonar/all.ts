@@ -50,7 +50,7 @@ Players stood in these {ability:248795:Fel Wakes:fire} will take damage, so they
 which deals large damage to all players in front of them.
 There is a 2 second cast time to {ability:250703:Fel Swipe:fire},
 and non-tanks should ensure that they are not in front of the {npc:Fel-Powered Purifier}
-when it swipes.`
+when it swipes.`, true
       ),
       new Interrupt(
         '4',
