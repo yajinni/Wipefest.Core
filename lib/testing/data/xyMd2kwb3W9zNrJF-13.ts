@@ -5886,6 +5886,235 @@ export const data = {
       }
     ]
   },
+  "eventConfigIndex": [
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2032,
+      "name": "Goroth",
+      "includes": [
+        "tomb-of-sargeras/goroth/abilities",
+        "tomb-of-sargeras/goroth/damage",
+        "tomb-of-sargeras/goroth/debuffs",
+        "tomb-of-sargeras/goroth/spawns"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2048,
+      "name": "Demonic Inquisition",
+      "includes": [
+        "tomb-of-sargeras/demonic-inquisition/abilities",
+        "tomb-of-sargeras/demonic-inquisition/damage",
+        "tomb-of-sargeras/demonic-inquisition/debuffs",
+        "tomb-of-sargeras/demonic-inquisition/spawns"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2036,
+      "name": "Harjatan",
+      "includes": [
+        "tomb-of-sargeras/harjatan/abilities",
+        "tomb-of-sargeras/harjatan/phases",
+        "tomb-of-sargeras/harjatan/spawns"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2037,
+      "name": "Mistress Sassz'ine",
+      "includes": [
+        "tomb-of-sargeras/mistress-sasszine/abilities",
+        "tomb-of-sargeras/mistress-sasszine/debuffs",
+        "tomb-of-sargeras/mistress-sasszine/phases"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2050,
+      "name": "Sisters of the Moon",
+      "includes": [
+        "tomb-of-sargeras/sisters-of-the-moon/abilities",
+        "tomb-of-sargeras/sisters-of-the-moon/damage",
+        "tomb-of-sargeras/sisters-of-the-moon/debuffs",
+        "tomb-of-sargeras/sisters-of-the-moon/phases"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2054,
+      "name": "The Desolate Host",
+      "includes": [
+        "tomb-of-sargeras/the-desolate-host/abilities",
+        "tomb-of-sargeras/the-desolate-host/debuffs",
+        "tomb-of-sargeras/the-desolate-host/phases",
+        "tomb-of-sargeras/the-desolate-host/spawns"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2052,
+      "name": "Maiden of Vigilance",
+      "includes": [
+        "tomb-of-sargeras/maiden-of-vigilance/abilities",
+        "tomb-of-sargeras/maiden-of-vigilance/damage",
+        "tomb-of-sargeras/maiden-of-vigilance/debuffs",
+        "tomb-of-sargeras/maiden-of-vigilance/phases"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2038,
+      "name": "Fallen Avatar",
+      "includes": [
+        "tomb-of-sargeras/fallen-avatar/abilities",
+        "tomb-of-sargeras/fallen-avatar/buffs",
+        "tomb-of-sargeras/fallen-avatar/debuffs",
+        "tomb-of-sargeras/fallen-avatar/phases"
+      ]
+    },
+    {
+      "zone": "Tomb of Sargeras",
+      "id": 2051,
+      "name": "Kil'jaeden",
+      "includes": [
+        "tomb-of-sargeras/kiljaeden/abilities",
+        "tomb-of-sargeras/kiljaeden/buffs",
+        "tomb-of-sargeras/kiljaeden/debuffs",
+        "tomb-of-sargeras/kiljaeden/phases",
+        "tomb-of-sargeras/kiljaeden/spawns"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2076,
+      "name": "Garothi Worldbreaker",
+      "includes": [
+        "antorus-the-burning-throne/garothi-worldbreaker/abilities",
+        "antorus-the-burning-throne/garothi-worldbreaker/damage",
+        "antorus-the-burning-throne/garothi-worldbreaker/debuffs",
+        "antorus-the-burning-throne/garothi-worldbreaker/phases"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2074,
+      "name": "Felhounds of Sargeras",
+      "includes": [
+        "antorus-the-burning-throne/felhounds-of-sargeras/abilities",
+        "antorus-the-burning-throne/felhounds-of-sargeras/buffs",
+        "antorus-the-burning-throne/felhounds-of-sargeras/damage",
+        "antorus-the-burning-throne/felhounds-of-sargeras/debuffs"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2070,
+      "name": "Antoran High Command",
+      "includes": [
+        "antorus-the-burning-throne/antoran-high-command/abilities",
+        "antorus-the-burning-throne/antoran-high-command/buffs",
+        "antorus-the-burning-throne/antoran-high-command/damage",
+        "antorus-the-burning-throne/antoran-high-command/debuffs",
+        "antorus-the-burning-throne/antoran-high-command/interrupts",
+        "antorus-the-burning-throne/antoran-high-command/phases",
+        "antorus-the-burning-throne/antoran-high-command/spawns"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2075,
+      "name": "The Defense of Eonar",
+      "includes": [
+        "antorus-the-burning-throne/the-defense-of-eonar/events",
+        "antorus-the-burning-throne/the-defense-of-eonar/waves"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2064,
+      "name": "Portal Keeper Hasabel",
+      "includes": [
+        "antorus-the-burning-throne/portal-keeper-hasabel/nexus",
+        "antorus-the-burning-throne/portal-keeper-hasabel/xoroth",
+        "antorus-the-burning-throne/portal-keeper-hasabel/rancora",
+        "antorus-the-burning-throne/portal-keeper-hasabel/nathreza"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2082,
+      "name": "Imonar the Soulhunter",
+      "includes": [
+        "antorus-the-burning-throne/imonar-the-soulhunter/platforms",
+        "antorus-the-burning-throne/imonar-the-soulhunter/phase-1",
+        "antorus-the-burning-throne/imonar-the-soulhunter/phase-2",
+        "antorus-the-burning-throne/imonar-the-soulhunter/phase-3",
+        "antorus-the-burning-throne/imonar-the-soulhunter/transition"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2088,
+      "name": "Kin'garoth",
+      "includes": [
+        "antorus-the-burning-throne/kingaroth/abilities",
+        "antorus-the-burning-throne/kingaroth/buffs",
+        "antorus-the-burning-throne/kingaroth/damage",
+        "antorus-the-burning-throne/kingaroth/debuffs",
+        "antorus-the-burning-throne/kingaroth/phases",
+        "antorus-the-burning-throne/kingaroth/spawns"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2069,
+      "name": "Varimathras",
+      "includes": [
+        "antorus-the-burning-throne/varimathras/abilities",
+        "antorus-the-burning-throne/varimathras/damage",
+        "antorus-the-burning-throne/varimathras/debuffs",
+        "antorus-the-burning-throne/varimathras/phases"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2073,
+      "name": "The Coven of Shivarra",
+      "includes": [
+        "antorus-the-burning-throne/the-coven-of-shivarra/abilities",
+        "antorus-the-burning-throne/the-coven-of-shivarra/damage",
+        "antorus-the-burning-throne/the-coven-of-shivarra/debuffs",
+        "antorus-the-burning-throne/the-coven-of-shivarra/phases"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2063,
+      "name": "Aggramar",
+      "includes": [
+        "antorus-the-burning-throne/aggramar/abilities",
+        "antorus-the-burning-throne/aggramar/buffs",
+        "antorus-the-burning-throne/aggramar/damage",
+        "antorus-the-burning-throne/aggramar/debuffs",
+        "antorus-the-burning-throne/aggramar/phases",
+        "antorus-the-burning-throne/aggramar/spawns"
+      ]
+    },
+    {
+      "zone": "Antorus, The Burning Throne",
+      "id": 2092,
+      "name": "Argus the Unmaker",
+      "includes": [
+        "antorus-the-burning-throne/argus-the-unmaker/phase-1",
+        "antorus-the-burning-throne/argus-the-unmaker/phase-2",
+        "antorus-the-burning-throne/argus-the-unmaker/phase-3",
+        "antorus-the-burning-throne/argus-the-unmaker/phase-4",
+        "antorus-the-burning-throne/argus-the-unmaker/phases",
+        "antorus-the-burning-throne/argus-the-unmaker/reap-soul"
+      ]
+    }
+  ],
   "eventConfigs": [
     {
       "id": "0H",

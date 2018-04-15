@@ -8,35 +8,45 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/expand';
 import 'rxjs/add/operator/last';
-import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/empty';
-import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/observable/of';
 import { AxiosInstance, AxiosResponse } from 'axios';
+import { HttpService } from 'infrastructure/http.service';
+import {
+  HttpResult,
+  ErrorHttpResult,
+  OkHttpResult
+} from 'infrastructure/result';
 
-export class WarcraftLogsCombatEventService implements ICombatEventService {
+export class WarcraftLogsCombatEventService extends HttpService
+  implements ICombatEventService {
   constructor(
     private eventConfigService: EventConfigService,
-    private http: AxiosInstance,
+    http: AxiosInstance,
     private apiKey: string
-  ) {}
-
-  private get<T>(url: string, params: any): Observable<AxiosResponse<T>> {
-    return Observable.fromPromise(this.http.get<T>(url, { params: params }));
+  ) {
+    super(http);
   }
 
   getCombatEvents(
     report: Report,
     fight: FightInfo,
     eventConfigs: EventConfig[]
-  ): Observable<CombatEvent[]> {
+  ): Observable<HttpResult<CombatEvent[]>> {
     const query = this.getQuery(eventConfigs);
+
     return this.getPageOfCombatEvents(
       report,
       fight.start_time,
       fight.end_time,
       query
     )
-      .expand(page => {
+      .expand(result => {
+        if (result.isFailure) {
+          return Observable.empty();
+        }
+
+        const page = result.value;
         if (!page.nextPageTimestamp) {
           return Observable.empty();
         }
@@ -49,8 +59,19 @@ export class WarcraftLogsCombatEventService implements ICombatEventService {
           page
         );
       })
-      .map(x => x.events)
-      .last();
+      .last()
+      .map(result => {
+        if (result.isFailure) {
+          return new ErrorHttpResult<CombatEvent[]>(
+            result.status,
+            result.error
+          );
+        }
+        return new OkHttpResult<CombatEvent[]>(
+          result.status,
+          result.value.events
+        );
+      });
   }
 
   private getPageOfCombatEvents(
@@ -59,8 +80,8 @@ export class WarcraftLogsCombatEventService implements ICombatEventService {
     end: number,
     query: string,
     previousPage: CombatEventPage = null
-  ): Observable<CombatEventPage> {
-    return this.get<any>(`report/events/${report.id}`, {
+  ): Observable<HttpResult<CombatEventPage>> {
+    return this.get(`report/events/${report.id}`, {
       api_key: this.apiKey,
       start: start,
       end: end,
@@ -69,14 +90,17 @@ export class WarcraftLogsCombatEventService implements ICombatEventService {
       .map(response => {
         const page = response.data;
         if (!previousPage) {
-          return page;
+          return new OkHttpResult<CombatEventPage>(response.status, page);
         }
-        return new CombatEventPage(
-          previousPage.events.concat(page.events),
-          page.nextPageTimestamp
+        return new OkHttpResult<CombatEventPage>(
+          response.status,
+          new CombatEventPage(
+            previousPage.events.concat(page.events),
+            page.nextPageTimestamp
+          )
         );
       })
-      .catch(error => this.handleError(error));
+      .catch(error => this.handleError<CombatEventPage>(error));
   }
 
   private getQuery(eventConfigs: EventConfig[]): string {
@@ -89,12 +113,8 @@ export class WarcraftLogsCombatEventService implements ICombatEventService {
     return query;
   }
 
-  private joinQueries(queries: string[]) {
+  private joinQueries(queries: string[]): string {
     return `(${queries.join(') or (')})`;
-  }
-
-  private handleError(error: Response | any): Observable<Response> {
-    return Observable.throw(error);
   }
 }
 

@@ -12,6 +12,7 @@ import { InsightService } from '../insights/insight.service';
 import { InsightContext } from '../insights/models/insight-context';
 import 'rxjs/add/operator/mergeMap';
 import { CombatEvent } from '../combat-events/combat-event';
+import { HttpResult, OkHttpResult, ErrorHttpResult } from 'infrastructure/result';
 
 export class FightService {
   constructor(
@@ -27,7 +28,7 @@ export class FightService {
     fightInfo: FightInfo,
     eventConfigs: EventConfig[],
     deathThreshold: number = 0
-  ): Observable<Fight> {
+  ): Observable<HttpResult<Fight>> {
     const deaths$ = this.deathService.getDeaths(report, fightInfo);
     const combatEvents$ = this.combatEventService.getCombatEvents(
       report,
@@ -36,8 +37,18 @@ export class FightService {
     );
 
     return Observable.forkJoin([deaths$, combatEvents$]).map(results => {
-      const deaths = results[0] as Death[];
-      const combatEvents = results[1] as CombatEvent[];
+      const deathsResult = results[0] as HttpResult<Death[]>;
+      const combatEventsResult = results[1] as HttpResult<CombatEvent[]>;
+
+      if (deathsResult.isFailure) {
+        return new ErrorHttpResult<Fight>(deathsResult.status, deathsResult.error);
+      }
+      if (combatEventsResult.isFailure) {
+        return new ErrorHttpResult<Fight>(combatEventsResult.status, combatEventsResult.error);
+      }
+
+      const deaths = deathsResult.value;
+      const combatEvents = combatEventsResult.value;
 
       const events = this.fightEventService.getEvents(
         report,
@@ -57,7 +68,7 @@ export class FightService {
         new InsightContext(report, fightInfo, raid, events)
       );
 
-      return new Fight(report, fightInfo, raid, eventConfigs, events, insights);
+      return new OkHttpResult<Fight>(combatEventsResult.status, new Fight(report, fightInfo, raid, eventConfigs, events, insights));
     });
   }
 }

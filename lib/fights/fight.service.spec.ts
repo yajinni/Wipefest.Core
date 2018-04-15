@@ -82,7 +82,10 @@ describe('FightService', () => {
 
     fightService
       .getFight(data.report, data.fightInfo, data.eventConfigs)
-      .subscribe(fight => {
+      .subscribe(result => {
+        expect(result.status).toBe(200);
+        const fight = result.value;
+
         expect(fight.report).toEqual(data.report);
         expect(fight.info).toEqual(data.fightInfo);
         expect(fight.eventConfigs).toEqual(data.eventConfigs);

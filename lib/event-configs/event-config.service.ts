@@ -10,24 +10,32 @@ import { EncountersService } from '../encounters/encounters.service';
 import { Raid } from '../raid/raid';
 import { Actor } from '../reports/report';
 import 'rxjs/add/observable/forkJoin';
-import 'rxjs/add/observable/fromPromise';
 import { AxiosInstance, AxiosResponse } from 'axios';
+import { HttpService } from 'infrastructure/http.service';
+import {
+  HttpResult,
+  OkHttpResult,
+  ErrorHttpResult
+} from 'infrastructure/result';
 
-export class EventConfigService {
+export class EventConfigService extends HttpService {
   constructor(
     private encountersService: EncountersService,
     private specializationsService: SpecializationsService,
-    private http: AxiosInstance
-  ) {}
-
-  private get<T>(url: string): Observable<AxiosResponse<T>> {
-    return Observable.fromPromise(this.http.get<T>(url));
+    http: AxiosInstance
+  ) {
+    super(http);
   }
 
-  getIncludesForBoss(bossId: number): Observable<string[]> {
-    return this.getEventConfigIndex().map(
-      x => x.find(boss => boss.id === bossId).includes
-    );
+  getIncludesForBoss(bossId: number): Observable<HttpResult<string[]>> {
+    return this.getEventConfigIndex().map(x => {
+      if (x.isFailure) return new ErrorHttpResult<string[]>(x.status, x.error);
+
+      return new OkHttpResult<string[]>(
+        x.status,
+        x.value.find(boss => boss.id === bossId).includes
+      );
+    });
   }
 
   getIncludesForFocuses(
@@ -47,11 +55,11 @@ export class EventConfigService {
       .filter((x, index, array) => array.indexOf(x) === index);
   }
 
-  getEventConfigs(includes: string[]): Observable<EventConfig[]> {
-    const batch: Observable<EventConfig[]>[] = [];
+  getEventConfigs(includes: string[]): Observable<HttpResult<EventConfig[]>> {
+    const batch: Observable<HttpResult<EventConfig[]>>[] = [];
 
     includes.forEach(include => {
-      const observable = this.get<any>(include + '.json')
+      const observable = this.get(include + '.json', {})
         .map(response => {
           const configs = response.data.map(config => {
             config.showByDefault = config.show;
@@ -60,81 +68,25 @@ export class EventConfigService {
             config.group = this.fileToGroup(include);
             return config;
           });
-          return configs;
+          return new OkHttpResult<EventConfig[]>(response.status, configs);
         })
-        .catch(error => this.handleError(error));
+        .catch(error => this.handleError<EventConfig[]>(error));
 
       batch.push(observable);
     });
 
-    return Observable.forkJoin(batch).map(x => [].concat.apply([], x)); // Flatten arrays into one array
-  }
-
-  private fileToGroup(file: string): string {
-    const encounters = this.encountersService.getEncounters();
-
-    switch (file) {
-      case 'general/raid':
-        return 'R';
-      case 'general/focus':
-        return 'F';
-      case 'general/tank':
-        return 'T';
-      case 'general/healer':
-        return 'H';
-      case 'general/ranged':
-        return 'RA';
-      case 'general/melee':
-        return 'M';
-    }
-
-    for (let i = 0; i < encounters.length; i++) {
-      const encounter = encounters[i];
-      const normalizedFile = this.normalize(file);
-      const normalizedName = this.normalize(encounter.name);
-      if (normalizedFile.indexOf(normalizedName) !== -1) {
-        return encounter.id.toString();
+    return Observable.forkJoin(batch).map(results => {
+      const failedResults = results.filter(result => result.isFailure);
+      if (failedResults.length > 0) {
+        return new ErrorHttpResult<EventConfig[]>(
+          failedResults[0].status,
+          failedResults.map(result => result.error).join(', ')
+        );
       }
-    }
 
-    for (
-      let i = 0;
-      i < this.specializationsService.getSpecializations().length;
-      i++
-    ) {
-      const specialization = this.specializationsService.getSpecializations()[
-        i
-      ];
-      if (file === specialization.include) {
-        return specialization.group;
-      }
-      if (file === specialization.generalInclude) {
-        return specialization.generalGroup;
-      }
-    }
-
-    return 'ungrouped';
-  }
-
-  private normalize(name: string): string {
-    return name
-      .split(' ')
-      .join('')
-      .split('-')
-      .join('')
-      .split("'")
-      .join('')
-      .toLowerCase();
-  }
-
-  private getEventConfigIndex(): Observable<EventConfigIndex[]> {
-    return this.get<any>('index.json')
-      .map(response => response.data)
-      .catch(error => this.handleError(error));
-  }
-
-  private handleError(error: Response | any): Observable<Response> {
-    return Observable.throw(error);
+      const configs = [].concat.apply([], results.map(result => result.value)); // Flatten arrays into one array
+      return new OkHttpResult<EventConfig[]>(results[0].status, configs);
+    });
   }
 
   combineFilters(
@@ -184,5 +136,73 @@ export class EventConfigService {
     });
 
     return combinedFilters;
+  }
+
+  private fileToGroup(file: string): string {
+    const encounters = this.encountersService.getEncounters();
+
+    switch (file) {
+      case 'general/raid':
+        return 'R';
+      case 'general/focus':
+        return 'F';
+      case 'general/tank':
+        return 'T';
+      case 'general/healer':
+        return 'H';
+      case 'general/ranged':
+        return 'RA';
+      case 'general/melee':
+        return 'M';
+      default:
+        break;
+    }
+
+    for (let i = 0; i < encounters.length; i++) {
+      const encounter = encounters[i];
+      const normalizedFile = this.normalize(file);
+      const normalizedName = this.normalize(encounter.name);
+      if (normalizedFile.indexOf(normalizedName) !== -1) {
+        return encounter.id.toString();
+      }
+    }
+
+    for (
+      let i = 0;
+      i < this.specializationsService.getSpecializations().length;
+      i++
+    ) {
+      const specialization = this.specializationsService.getSpecializations()[
+        i
+      ];
+      if (file === specialization.include) {
+        return specialization.group;
+      }
+      if (file === specialization.generalInclude) {
+        return specialization.generalGroup;
+      }
+    }
+
+    return 'ungrouped';
+  }
+
+  private normalize(name: string): string {
+    return name
+      .split(' ')
+      .join('')
+      .split('-')
+      .join('')
+      .split("'")
+      .join('')
+      .toLowerCase();
+  }
+
+  private getEventConfigIndex(): Observable<HttpResult<EventConfigIndex[]>> {
+    return this.get('index.json', {})
+      .map(
+        response =>
+          new OkHttpResult<EventConfigIndex[]>(response.status, response.data)
+      )
+      .catch(error => this.handleError<EventConfigIndex[]>(error));
   }
 }

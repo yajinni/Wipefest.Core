@@ -1,5 +1,5 @@
 import { Report, FightInfo } from '../reports/report';
-import { EventConfig } from '../event-configs/event-config';
+import { EventConfig, EventConfigIndex } from '../event-configs/event-config';
 import { CombatEvent } from '../combat-events/combat-event';
 import { Raid, Player } from '../raid/raid';
 import { FightEvent } from '../fight-events/models/fight-event';
@@ -15,6 +15,7 @@ export class TestDataService {
     const files = [
       {
         name: 'xyMd2kwb3W9zNrJF-13',
+        // tslint:disable-next-line:no-require-imports
         contents: require(`./data/xyMd2kwb3W9zNrJF-13`)
       }
     ];
@@ -37,6 +38,12 @@ export class TestDataService {
       Object.assign(death, x);
       return death;
     });
+
+    data.eventConfigIndex = json.eventConfigIndex.map(x => {
+      const eventConfigIndex = Object.create(EventConfigIndex.prototype);
+      Object.assign(eventConfigIndex, x);
+      return eventConfigIndex;
+    })
 
     data.eventConfigs = json.eventConfigs.map(x => {
       const eventConfig = Object.create(EventConfig.prototype);
@@ -91,6 +98,7 @@ export class TestData {
   report: Report;
   fightInfo: FightInfo;
   deaths: TestDataDeaths;
+  eventConfigIndex: EventConfigIndex[];
   eventConfigs: EventConfig[];
   query: string;
   combatEventPages: CombatEventPage[];

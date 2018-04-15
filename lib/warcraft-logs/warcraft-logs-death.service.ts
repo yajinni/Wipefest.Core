@@ -4,38 +4,31 @@ import { IDeathService } from '../deaths/death.service';
 import { FightInfo, Report } from '../reports/report';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/observable/fromPromise';
 import { AxiosInstance, AxiosResponse } from 'axios';
+import { HttpService } from 'infrastructure/http.service';
+import { OkHttpResult, HttpResult } from 'infrastructure/result';
 
-export class WarcraftLogsDeathService implements IDeathService {
-  constructor(private http: AxiosInstance, private apiKey: string) {}
-
-  private get<T>(url: string, params: any): Observable<AxiosResponse<T>> {
-    return Observable.fromPromise(
-      this.http.get<T>(url, {
-        params: params
-      })
-    );
+export class WarcraftLogsDeathService extends HttpService
+  implements IDeathService {
+  constructor(http: AxiosInstance, private apiKey: string) {
+    super(http);
   }
 
-  getDeaths(report: Report, fight: FightInfo): Observable<Death[]> {
-    return this.get<any>(`report/tables/deaths/${report.id}`, {
+  getDeaths(report: Report, fight: FightInfo): Observable<HttpResult<Death[]>> {
+    return this.get(`report/tables/deaths/${report.id}`, {
       api_key: this.apiKey,
       start: fight.start_time,
       end: fight.end_time
     })
-      .map(response =>
-        response.data.entries.map(x => {
+      .map(response => {
+        const deaths = response.data.entries.map(x => {
           const death = Object.create(Death.prototype);
           Object.assign(death, x);
           return death;
-        })
-      )
-      .catch(error => this.handleError(error));
-  }
+        });
 
-  private handleError(error: Response | any): Observable<Response> {
-    return Observable.throw(error);
+        return new OkHttpResult<Death[]>(response.status, deaths);
+      })
+      .catch(error => this.handleError<Death[]>(error));
   }
 }

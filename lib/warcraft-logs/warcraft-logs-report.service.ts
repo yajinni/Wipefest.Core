@@ -3,23 +3,22 @@ import { Report } from '../reports/report';
 import { IReportService } from '../reports/report.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/observable/fromPromise';
 import { AxiosInstance, AxiosResponse } from 'axios';
+import {
+  HttpResult,
+  OkHttpResult,
+  ErrorHttpResult
+} from 'infrastructure/result';
+import { HttpService } from 'infrastructure/http.service';
 
-export class WarcraftLogsReportService implements IReportService {
-  constructor(private http: AxiosInstance, private apiKey: string) {}
-
-  private get<T>(url: string, params: any): Observable<AxiosResponse<T>> {
-    return Observable.fromPromise(
-      this.http.get<T>(url, {
-        params: params
-      })
-    );
+export class WarcraftLogsReportService extends HttpService
+  implements IReportService {
+  constructor(http: AxiosInstance, private apiKey: string) {
+    super(http);
   }
 
-  getReport(reportId: string): Observable<Report> {
-    return this.get<any>(`/report/fights/${reportId}`, {
+  getReport(reportId: string): Observable<HttpResult<Report>> {
+    return this.get(`/report/fights/${reportId}`, {
       api_key: this.apiKey,
       random: this.getRandomString()
     })
@@ -28,16 +27,12 @@ export class WarcraftLogsReportService implements IReportService {
         Object.assign(report, response.data);
         report.id = reportId;
 
-        return report;
+        return new OkHttpResult<Report>(response.status, report);
       })
-      .catch(error => this.handleError(error));
+      .catch(error => this.handleError<Report>(error));
   }
 
-  private handleError(error: Response | any): Observable<Response> {
-    return Observable.throw(error);
-  }
-
-  private getRandomString() {
+  private getRandomString(): string {
     const characters =
       'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let output = '';
@@ -47,7 +42,7 @@ export class WarcraftLogsReportService implements IReportService {
     return output;
   }
 
-  private getRandomNumber(max: number) {
+  private getRandomNumber(max: number): number {
     return Math.floor(Math.random() * (max + 0.999999));
   }
 }
