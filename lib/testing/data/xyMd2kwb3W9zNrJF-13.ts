@@ -39448,12 +39448,6 @@ export const data = {
   "raid": {
     "players": [
       {
-        "name": "Essence of Eonar",
-        "className": "Boss",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
         "name": "Icecdeath",
         "className": "DeathKnight",
         "specialization": {
@@ -39519,12 +39513,6 @@ export const data = {
         "itemLevel": 963.1333333333333
       },
       {
-        "name": "Swyx",
-        "className": "Druid",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
         "name": "Heskeey",
         "className": "Hunter",
         "specialization": {
@@ -39536,12 +39524,6 @@ export const data = {
           "focusEnabled": false
         },
         "itemLevel": 965.0666666666667
-      },
-      {
-        "name": "Shotzone",
-        "className": "Hunter",
-        "specialization": null,
-        "itemLevel": null
       },
       {
         "name": "Rajer",
@@ -39583,48 +39565,6 @@ export const data = {
         "itemLevel": 960.4
       },
       {
-        "name": "Admiral's Pod",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Engineer's Pod",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "General's Pod",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Lightforged Centurion",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Lightforged Cleric",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Lightforged Commander",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Lightforged Warframe",
-        "className": "NPC",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
         "name": "X�nubis",
         "className": "Paladin",
         "specialization": {
@@ -39636,24 +39576,6 @@ export const data = {
           "focusEnabled": false
         },
         "itemLevel": 970.5625
-      },
-      {
-        "name": "Hati",
-        "className": "Pet",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Healing Stream Totem",
-        "className": "Pet",
-        "specialization": null,
-        "itemLevel": null
-      },
-      {
-        "name": "Void Tendril",
-        "className": "Pet",
-        "specialization": null,
-        "itemLevel": null
       },
       {
         "name": "Lambkorma",

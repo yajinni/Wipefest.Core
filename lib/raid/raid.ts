@@ -13,7 +13,11 @@ export namespace RaidFactory {
       return new Raid([]);
     }
 
+    const classTypes = specializationsService.getSpecializations()
+      .map(x => x.type)
+      .filter((x, index, array) => array.indexOf(x) === index);
     const players = friendlies
+      .filter(x => classTypes.indexOf(x.type) !== -1)
       .map(x => {
         const combatantInfo = combatantInfos.find(y => x.id === y.sourceID);
 
@@ -76,7 +80,7 @@ export namespace SortRaid {
 }
 
 export class Raid {
-  constructor(public players: Player[]) {}
+  constructor(public players: Player[]) { }
 
   get itemLevel() {
     return (
@@ -133,7 +137,7 @@ export class Player {
     public className: string,
     public specialization: Specialization,
     public itemLevel: number
-  ) {}
+  ) { }
 
   toActor(): Actor {
     return new Actor(this.name, this.className);
@@ -141,5 +145,5 @@ export class Player {
 }
 
 export class RoleWithPlayers {
-  constructor(public name: string, public players: Player[]) {}
+  constructor(public name: string, public players: Player[]) { }
 }

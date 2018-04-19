@@ -19,7 +19,9 @@ export abstract class HttpService {
     return Observable.of(
       new ErrorHttpResult<T>(
         error.response.status,
-        error.response.data ? error.response.data : error.message
+        (error.response.data && error.response.data.error) ? error.response.data.error :
+        error.response.data ? error.response.data :
+        error.message
       )
     );
   }

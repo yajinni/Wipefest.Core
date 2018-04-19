@@ -60,7 +60,7 @@ export class FightService {
       );
       const raid = RaidFactory.Get(
         combatEvents.filter(x => x.type === 'combatantinfo'),
-        report.friendlies,
+        report.friendlies.filter(x => x.fights.some(y => y.id === fightInfo.id)),
         this.specializationsService
       );
       const insights = this.insightService.getInsights(

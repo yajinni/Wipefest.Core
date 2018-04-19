@@ -12,7 +12,7 @@ describe('RaidFactory', () => {
 
     const raid = RaidFactory.Get(
       data.combatEvents.filter(x => x.type === 'combatantinfo'),
-      data.report.friendlies,
+      data.report.friendlies.filter(x => x.fights.some(y => y.id === data.fightInfo.id)),
       specializationsService
     );
 
